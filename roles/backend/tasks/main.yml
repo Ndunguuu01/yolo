@@ -1,23 +1,19 @@
----
-- name: Install Docker
+--
+- name: Install Nginx
   apt:
-    name: docker.io
+    name: nginx
     state: present
     update_cache: yes
 
-- name: Start Docker Service
-  systemd:
-    name: docker
+- name: Copy Nginx configuration file
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
+
+- name: Ensure Nginx is started
+  service:
+    name: nginx
     state: started
     enabled: yes
 
-- name: Run Database Container
-  docker_container:
-    name: db
-    image: your_db_image
-    state: started
-    env:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: db_name
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: db_password
