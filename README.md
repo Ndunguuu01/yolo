@@ -10,10 +10,10 @@ This challenge demonstrates using Ansible for configuration management to instal
 - **playbook.Yml**: Ansible playbook for provisioning and configuration.
 - **roles/**: Contains Ansible roles for numerous configurations:
   - **frontend/**: Nginx setup.
-  - **backend/**: Docker and alertness setup.
-  - **database/**: Database field setup.
+  - **backend/**: Docker and application setup.
+  - **database/**: Database container setup.
 - **templates/**:  templates for configuration files.
-- **hosts**: Ansible stock report.
+- **hosts**: Ansible host report.
 
 ## Setup Instructions
 
