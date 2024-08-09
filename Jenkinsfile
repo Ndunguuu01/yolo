@@ -22,7 +22,7 @@ pipeline {
         success {
             script {
                 // Notify on Slack
-                slackSend (channel: '#YourFirstName_IP1', 
+                slackSend (channel: '#Brian_IP1', 
                             message: "Build ${env.BUILD_ID} successfully deployed to Render: ${env.RENDER_URL}")
             }
         }
