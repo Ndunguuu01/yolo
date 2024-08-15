@@ -1,0 +1,24 @@
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+- name: Pull e-commerce Docker image
+  docker_image:
+    name: ndunguuu/yolo-backend
+    source: pull
+
+- name: Run e-commerce container
+  docker_container:
+    name: ecommerce_app
+    image: ndunguuu/yolo-backend
+    state: started
+    ports:
+      - "8080:80"
