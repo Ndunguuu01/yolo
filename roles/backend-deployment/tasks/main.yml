@@ -1,16 +1,24 @@
----
-- name: Pull image from repository
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+- name: Pull e-commerce Docker image
   docker_image:
-    name: brianbwire/brian-yolo-backend:v1.0.0
+    name: ndunguuu/yolo-backend
     source: pull
 
-- name: Create Node.js Backend Container
+- name: Run e-commerce container
   docker_container:
-    name: brian-yolo-backend
-    image: brianbwire/brian-yolo-backend:v1.0.0
-    networks:
-      - name: app-net
+    name: ecommerce_app
+    image: ndunguuu/yolo-backend
+    state: started
     ports:
-      - "5000:5000"
-    command: "npm start"
-  become: yes
+      - "8080:80"

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./roles/frontend/tasks
+    ports:
+      - "8080:3000"
+    networks:
+      - webnet
+
+  backend:
+    build:
+      context: ./roles/backend/tasks
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mydatabase
+    networks:
+      - webnet
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

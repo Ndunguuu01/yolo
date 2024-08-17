@@ -1,0 +1,13 @@
+[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Wed 2024-08-14 19:54:12 UTC; 15h ago
+       Docs: man:nginx(8)
+   Main PID: 13083 (nginx)
+      Tasks: 2 (limit: 1077)
+     Memory: 4.2M
+     CGroup: /system.slice/nginx.service
+             ├─13083 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+             └─13084 nginx: worker process
+
+Aug 14 19:54:12 vagrant systemd[1]: Starting A high performance web server and a reverse proxy server...
+Aug 14 19:54:12 vagrant systemd[1]: Started A high performance web server and a reverse proxy server.
