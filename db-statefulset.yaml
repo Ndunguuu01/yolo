@@ -15,7 +15,7 @@ spec:
       spec:
         containers:
         - name: db
-          image: [DOCKER_HUB_USERNAME]/db:[TAG]
+          image: ndunguuu/yolo-backend:latest
           ports:
             - containerPort: 5432
           volumeMounts:
