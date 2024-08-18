@@ -1,15 +1,52 @@
-# Overview
-This project involved the containerization and deployment of a full-stack yolo application using Docker.
+# Yolo Project
+
+## Overview
+
+The Yolo Project is a comprehensive application designed to be deployed on Kubernetes. This project includes a Node.js backend service with a Docker container, Kubernetes configurations for deployment, service, and scaling, and various related resources to ensure a robust and scalable application.
+
+## Features
+
+- **Node.js Backend**: A simple Node.js application to serve as the backend service.
+- **Docker**: Containerized application using Docker.
+- **Kubernetes**: Deployment, service, ingress, and scaling configurations for managing and accessing the application in a Kubernetes cluster.
+- **Persistence**: Configurations for Persistent Volumes and Persistent Volume Claims.
+
+## Getting Started
+
+### Prerequisites
+
+- Docker: Ensure Docker is installed and running on your machine.
+- Kubernetes: Minikube or a Kubernetes cluster setup.
+- kubectl: Kubernetes command-line tool.
+
+### Setup and Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/Ndunguuu01/yolo
+   cd yolo-project
+2. **Build and Run the Docker Container**
 
 
-# Requirements
-Install the docker engine here:
-- [Docker](https://docs.docker.com/engine/install/) 
+docker build -t ndunguuu/yolo-backend:latest .
+docker run -p 8080:8080 ndunguuu/yolo-backend:latest
+3.  **Deploy to Kubernetes**
 
-## How to launch the application 
+:Apply Kubernetes configurations:
+
+kubectl apply -f k8s/
+:Check the status of your pods:
 
 
-![Alt text](image.png)
+kubectl get pods
+:Get the external IP of the service:
+kubectl get svc
 
-## How to run the app
-Use vagrant up --provison command
+
+
+Testing and Validation
+
+
+Ensure the Docker container runs properly before deploying to Kubernetes.
+Use kubectl to ensure all components are running as expected and validate the deployment.
