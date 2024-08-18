@@ -16,4 +16,11 @@ spec:
       - name: webapp
         image: ndunguuu/yolo-backend:latest
         ports:
-          - containerPort: 80
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"

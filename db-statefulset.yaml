@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: db
+  name: db-statefulset
 spec:
-  serviceName: "db"
-  replicas: 1
+  serviceName: "db-service"
+  replicas: 3
   selector:
     matchLabels:
       app: db
@@ -12,20 +12,20 @@ spec:
     metadata:
       labels:
         app: db
-      spec:
-        containers:
-        - name: db
-          image: ndunguuu/yolo-backend:latest
-          ports:
-            - containerPort: 5432
-          volumeMounts:
-            - name: db-storage
-              mountPath: /var/lib/postgresql/data
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:latest
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-persistent-storage
+          mountPath: /data/db
   volumeClaimTemplates:
   - metadata:
-      name: db-storage
+      name: mongo-persistent-storage
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 10Gi
+          storage: 1Gi
