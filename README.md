@@ -1,8 +1,8 @@
-# Kubernetes Deployment Project - Week 5
+# Week 5 Kubernetes Project
 
 ## Overview
 
-This project showcases the deployment of a web application using Kubernetes on Google Kubernetes Engine (GKE). The application is containerized using Docker and managed using Kubernetes objects such as Deployments, StatefulSets, Services, and PersistentVolumes. The project demonstrates the orchestration of containers and the use of Kubernetes features to ensure scalability, reliability, and persistence.
+This project involves deploying a web application on Google Kubernetes Engine (GKE). The application uses a Docker container and Kubernetes to manage deployment, scaling, and operations. This README provides details about the setup, deployment, and how to access the live application.
 
 ## Project Structure
 
@@ -22,8 +22,22 @@ This project showcases the deployment of a web application using Kubernetes on G
 
 ## Getting Started
 
-### 1. Clone the Repository
+## Deployment
 
-```bash
-git clone https://github.com/Ndunguuu01/yolo
-cd yolo
+1. **Set up GKE Cluster**: Ensure you have a GKE cluster set up. Follow Google Cloud’s documentation to create and configure your GKE cluster.
+2. **Build Docker Image**: Build the Docker image locally and push it to Docker Hub.
+    ```bash
+    docker build -t ndunguuu/yolo-backend:latest .
+    docker push ndunguuu/yolo-backend:latest
+    ```
+3. **Apply Kubernetes Manifests**: Use the provided YAML files to deploy your application.
+    ```bash
+    kubectl apply -f manifests/
+    ```
+
+4. **Access the Application**: Once deployed, get the external IP of the service to access the application.
+    ```bash
+    kubectl get services
+    ```
+
+
