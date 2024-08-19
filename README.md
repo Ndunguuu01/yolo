@@ -1,52 +1,29 @@
-# Yolo Project
+# Kubernetes Deployment Project - Week 5
 
 ## Overview
 
-The Yolo Project is a comprehensive application designed to be deployed on Kubernetes. This project includes a Node.js backend service with a Docker container, Kubernetes configurations for deployment, service, and scaling, and various related resources to ensure a robust and scalable application.
+This project showcases the deployment of a web application using Kubernetes on Google Kubernetes Engine (GKE). The application is containerized using Docker and managed using Kubernetes objects such as Deployments, StatefulSets, Services, and PersistentVolumes. The project demonstrates the orchestration of containers and the use of Kubernetes features to ensure scalability, reliability, and persistence.
 
-## Features
+## Project Structure
 
-- **Node.js Backend**: A simple Node.js application to serve as the backend service.
-- **Docker**: Containerized application using Docker.
-- **Kubernetes**: Deployment, service, ingress, and scaling configurations for managing and accessing the application in a Kubernetes cluster.
-- **Persistence**: Configurations for Persistent Volumes and Persistent Volume Claims.
+- **Dockerfile**: Defines the image used to run the application.
+- **Kubernetes Manifests**: YAML files describing the Kubernetes resources:
+  - `Deployment`: Manages stateless application pods.
+  - `StatefulSet`: Manages stateful applications with persistent storage.
+  - `Service`: Exposes the application to external traffic.
+  - `PersistentVolume` and `PersistentVolumeClaim`: Manage storage resources.
+
+## Prerequisites
+
+- **Google Cloud Account**: To set up and manage GKE.
+- **Docker Hub Account**: To push and pull Docker images.
+- **kubectl**: Kubernetes command-line tool configured to interact with your GKE cluster.
+- **gcloud CLI**: Google Cloud SDK to manage your GKE cluster.
 
 ## Getting Started
 
-### Prerequisites
+### 1. Clone the Repository
 
-- Docker: Ensure Docker is installed and running on your machine.
-- Kubernetes: Minikube or a Kubernetes cluster setup.
-- kubectl: Kubernetes command-line tool.
-
-### Setup and Installation
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/Ndunguuu01/yolo
-   cd yolo-project
-2. **Build and Run the Docker Container**
-
-
-docker build -t ndunguuu/yolo-backend:latest .
-docker run -p 8080:8080 ndunguuu/yolo-backend:latest
-3.  **Deploy to Kubernetes**
-
-:Apply Kubernetes configurations:
-
-kubectl apply -f k8s/
-:Check the status of your pods:
-
-
-kubectl get pods
-:Get the external IP of the service:
-kubectl get svc
-
-
-
-Testing and Validation
-
-
-Ensure the Docker container runs properly before deploying to Kubernetes.
-Use kubectl to ensure all components are running as expected and validate the deployment.
+```bash
+git clone https://github.com/Ndunguuu01/yolo
+cd yolo
